@@ -28,9 +28,11 @@
 .image {
   &::after {
     @include circle(10%, 1.5, unset, $space_10, $space_5);
+    animation-delay: 0.34s;
   }
   &::before {
     @include circle(60%, 0.2, $space_2, $space_10);
+    animation-delay: 0.6s;
   }
   @include tablet {
     width: 40%;
@@ -52,6 +54,7 @@
   }
   &::before {
     @include circle(20%, 1.2, $space_5, unset, unset, $space_16);
+    // animation-delay: 0.25s;
   }
   &::after {
     @include circle(10%, 1.5, $space_5, unset, unset, $space_16);
@@ -79,6 +82,7 @@
   font-family: $secondary-font;
   &::before {
     @include circle(40%, 0.4, unset, unset, $space_10, $space_3);
+    animation-delay: 0.8s;
   }
   @include laptop {
     font-size: larger;

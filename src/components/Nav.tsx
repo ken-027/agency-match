@@ -5,7 +5,7 @@ import { Divide as Hamburger } from 'hamburger-react'
 
 const links: { link: string; text: string }[] = [
   { link: '#feature', text: 'Hoe het werkt' },
-  { link: '#', text: 'Vragen' },
+  { link: '#faq', text: 'Vragen' },
   { link: '#aboutus', text: 'Over ons' },
 ]
 

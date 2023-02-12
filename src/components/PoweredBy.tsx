@@ -27,6 +27,10 @@ const PoweredBy: React.FC<{}> = () => {
     <motion.section
       onViewportEnter={() => setisViewport(true)}
       onViewportLeave={() => setisViewport(false)}
+      initial={{ translateY: '10vh' }}
+      whileInView={{ translateY: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
       className={style.section}
       id='poweredby'>
       <div className={style.container}>

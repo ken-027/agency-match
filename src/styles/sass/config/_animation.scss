@@ -50,3 +50,21 @@
     // backdrop-filter: blur(0);
   }
 }
+
+@keyframes bubbling {
+  0% {
+    margin-top: 5px;
+    // top: 10px;
+    // transform: translateY(-10px);
+  }
+  50% {
+    margin-top: 0;
+    // top: -10px;
+    // transform: translateY(10px);
+  }
+  100% {
+    margin-top: 5px;
+    // top: 10px;
+    // transform: translateY(-10px);
+  }
+}

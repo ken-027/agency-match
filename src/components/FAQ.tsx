@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import style from '@/sass/components/faq.module.scss'
 import Collapse from 'antd/es/collapse'
 
@@ -9,17 +10,38 @@ const faqs: string[] = [
   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, itaque. Distinctio mollitia exercitationem consequatur atque, in quisquam aperiam fugit asperiores repellat perferendis voluptatibus qui eius!',
 ]
 
+const transitionOpacity = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  transition: { duration: 0.8 },
+  viewport: { once: true },
+}
+
+const transitionTranslate = {
+  initial: { translateY: '10vh' },
+  whileInView: { translateY: 0 },
+  transition: { duration: 0.8 },
+  viewport: { once: true },
+}
+
 const FAQ: React.FC<{}> = () => {
   return (
-    <section
+    <motion.section
+      {...transitionTranslate}
       className={style.section}
-      id='FAQ'>
+      id='faq'>
       <div className={style.container}>
-        <h2 className={style.title}>Veelgestelde vragen</h2>
-        <h3 className={style.subTitle}>
+        <motion.h2
+          {...transitionOpacity}
+          className={style.title}>
+          Veelgestelde vragen
+        </motion.h2>
+        <motion.h3
+          {...transitionOpacity}
+          className={style.subTitle}>
           Vind hieronder antwoord op de meest gestelde vragen of{' '}
           <a href='#'>neem contact met ons op.</a>
-        </h3>
+        </motion.h3>
         <Collapse
           className={style.accordion}
           bordered={false}
@@ -38,7 +60,7 @@ const FAQ: React.FC<{}> = () => {
           ))}
         </Collapse>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

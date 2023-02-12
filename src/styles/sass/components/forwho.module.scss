@@ -14,9 +14,11 @@
   }
   &::after {
     @include circle(10%, 1.5, unset, $space_10, $space_5);
+    animation-delay: 0.3s;
   }
   &::before {
     @include circle(60%, 0.2, $space_2, $space_10);
+    animation-delay: 0.6s;
   }
 }
 
@@ -46,6 +48,7 @@ a[type='button'] {
 
   &::before {
     @include circle(12%, 0.5, $space_5, unset, unset, $space_2);
+    animation-delay: 83s;
     z-index: -1;
   }
 }
@@ -125,16 +128,19 @@ a[type='button'] {
   position: relative;
   align-items: center;
   text-align: center;
+  padding-inline: $space_4;
   @include laptop {
     width: 40%;
     align-items: flex-start;
     text-align: left;
     justify-content: center;
+    padding-inline: unset;
     gap: $space_6;
   }
 
   &::after {
     @include circle(10%, 1.5, $space_5, unset, unset, $space_16);
+    animation-delay: 0.45s;
     z-index: -1;
   }
 

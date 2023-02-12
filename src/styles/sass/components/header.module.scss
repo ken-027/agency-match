@@ -22,7 +22,7 @@
 .container {
   text-align: center;
   max-width: $desktop;
-  padding-inline: $space_4;
+  padding-inline: $space_8;
   padding-block: $space_10;
   margin: auto;
   // background-color: $primary-light-color;
@@ -110,14 +110,17 @@
   }
   &::before {
     @include circle(20%);
+    animation-delay: 0.3s;
   }
 }
 
 .circles {
   &::before {
     @include circle(90%, 0.3, 0, -$space_10);
+    animation-delay: 0.5s;
   }
   &::after {
     @include circle(40%, 0.3, unset, unset, -$space_10, 0);
+    animation-delay: 0.7s;
   }
 }

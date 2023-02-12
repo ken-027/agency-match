@@ -30,7 +30,7 @@
   opacity: $opacity;
   transform: scale($scale);
   aspect-ratio: 1/1;
-  animation: scaling 1.5s linear infinite;
+  animation: scaling 3s linear infinite, bubbling 1.5s ease-in-out infinite;
 }
 
 @mixin button(

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { FaChevronRight } from 'react-icons/fa'
 import style from '@/sass/components/forwho.module.scss'
 
@@ -26,6 +27,20 @@ const list: {
   },
 ]
 
+const transitionOpacity = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  transition: { duration: 0.8 },
+  viewport: { once: true },
+}
+
+const transitionTranslate = {
+  initial: { translateY: '10vh' },
+  whileInView: { translateY: 0 },
+  transition: { duration: 0.8 },
+  viewport: { once: true },
+}
+
 const ForWho: React.FC<{}> = () => {
   return (
     <section
@@ -33,7 +48,9 @@ const ForWho: React.FC<{}> = () => {
       id='forwho'>
       <div className={style.cards}>
         {list.map((item, index) => (
-          <div
+          <motion.div
+            {...transitionTranslate}
+            transition={{ duration: 0.8, delay: 0.1 * index }}
             key={index}
             className={style.wrapper}>
             <div
@@ -53,30 +70,37 @@ const ForWho: React.FC<{}> = () => {
                 ''
               )}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-      <div className={style.description}>
-        <h3 className='green'>Lorem ipsum</h3>
-        <h2>Voor wie?</h2>
-        <p>
+      <motion.div
+        {...transitionTranslate}
+        className={style.description}>
+        <motion.h3
+          {...transitionOpacity}
+          className='green'>
+          Lorem ipsum
+        </motion.h3>
+        <motion.h2 {...transitionOpacity}>Voor wie?</motion.h2>
+        <motion.p {...transitionTranslate}>
           Of je nu een stichting runt, voor een overheidsorganisatie werkt, een
           startup of een (groot) bedrijf hebt, of zzp'er bent: op basis van jouw
           behoeftes, matchen we je aan 3 passende online marketingbureaus.
-        </p>
-        <p>
+        </motion.p>
+        <motion.p {...transitionTranslate}>
           Jij zoekt een professioneel online marketingbureau. Waar te beginnen?
           Hier! Dat scheelt een hoop tijd en geld. De zoektocht naar het juiste
           online marketingbureau kan hier beginnen. Start je zoektocht naar het
           juiste marketingbureau bij AgencyMatch.
-        </p>
-        <a
+        </motion.p>
+        <motion.a
+          {...transitionOpacity}
           href='#'
           type='button'>
           Start nu
           <FaChevronRight className='icon-next' />
-        </a>
-      </div>
+        </motion.a>
+      </motion.div>
     </section>
   )
 }

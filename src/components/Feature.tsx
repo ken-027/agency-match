@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import faq from '@/assets/faq.png'
 import { FaChevronRight } from 'react-icons/fa'
 import puzzle from '@/assets/puzzle.png'
@@ -26,18 +27,41 @@ const list: { image: string; title: string; description: string }[] = [
   },
 ]
 
+const transitionOpacity = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  transition: { duration: 0.8 },
+  viewport: { once: true },
+}
+
+const transitionTranslate = {
+  initial: { translateY: '10vh' },
+  whileInView: { translateY: 0 },
+  transition: { duration: 0.8 },
+  viewport: { once: true },
+}
+
 const Feature: React.FC<{}> = () => {
   return (
     <section
       className={style.feature}
       id='feature'>
-      <h3 className={style.subTitle}>Zo werkt het</h3>
-      <h2 className={style.title}>
+      <motion.h3
+        {...transitionOpacity}
+        className={style.subTitle}>
+        Zo werkt het
+      </motion.h3>
+      <motion.h2
+        {...transitionOpacity}
+        transition={{ delay: 0.2, duration: 0.8 }}
+        className={style.title}>
         In 3 stappen naar het juiste online marketingbureau
-      </h2>
+      </motion.h2>
       <div className={style.list}>
         {list.map((item, index) => (
-          <div
+          <motion.div
+            {...transitionTranslate}
+            transition={{ duration: 0.8, delay: index * 0.1 }}
             className={style.item}
             key={index}>
             <img
@@ -46,25 +70,28 @@ const Feature: React.FC<{}> = () => {
             />
             <p>{item.title}</p>
             <p className='description'>{item.description}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
       <ul className={style.checkList}>
-        <li>
+        <motion.li {...transitionOpacity}>
           <BsCheckLg />
           <p>Enkel online marketingbureau's met trackrecord</p>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li
+          {...transitionOpacity}
+          transition={{ duration: 0.8, delay: 0.1 }}>
           <BsCheckLg />
           <p>Je gegevens zijn veilig bij ons</p>
-        </li>
+        </motion.li>
       </ul>
-      <a
+      <motion.a
+        {...transitionOpacity}
         href='#'
         type='button'>
         Start nu
         <FaChevronRight className='icon-next' />
-      </a>
+      </motion.a>
     </section>
   )
 }

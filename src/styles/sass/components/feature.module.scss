@@ -19,6 +19,7 @@
   position: relative;
   &::after {
     @include circle(20%, 0.6, unset, 0, $space_2);
+    animation-delay: 0.3s;
     z-index: 0;
   }
 }
@@ -55,6 +56,7 @@
   }
   &::after {
     @include circle(30%, 0.3, $space_2, unset, unset, $space_2);
+    animation-delay: 0.55s;
     z-index: 0;
   }
 }
@@ -65,10 +67,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-inline: $space_4;
   justify-content: center;
   gap: $space_4;
+  @include tablet {
+    padding-inline: unset;
+  }
   &::before {
     @include circle(3%, 1, 50%, 50%);
+    animation-delay: 0.73s;
     z-index: 0;
   }
   p {
@@ -94,8 +101,11 @@
   text-align: left;
   gap: $space_2;
   align-items: baseline;
+  padding-inline: $space_4;
   @include tablet {
     flex-direction: row;
+    padding-inline: unset;
+    gap: $space_10;
   }
   li {
     display: flex;

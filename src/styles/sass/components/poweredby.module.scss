@@ -18,6 +18,7 @@
   gap: $space_4;
   &::before {
     @include circle(38%, 0.3, -$space_20, -$space_8);
+    animation-delay: 0.25s;
   }
   @include tablet {
     padding: $space_6 $space_10;
@@ -39,9 +40,11 @@
   position: relative;
   &::after {
     @include circle(14%, 1, unset, $space_4, -$space_6);
+    animation-delay: 0.8s;
   }
   &::before {
     @include circle(8%, 0.5, -$space_14);
+    animation-delay: 0.7s;
   }
   p {
     font-weight: bold;
