@@ -37,12 +37,14 @@
   z-index: 5;
   display: flex;
   justify-content: space-between;
+  // padding-block: $space_1;
 }
 
 .navMobileContainer {
   display: flex;
   justify-content: space-between;
   position: relative;
+  padding-block: $space_1_5;
   background-color: $white;
   z-index: 10;
   width: 100%;
@@ -54,7 +56,7 @@
 .logoLink {
   display: grid;
   place-items: center;
-  width: 30%;
+  width: 45%;
   max-width: 250px;
   z-index: 6;
   @include tablet {
