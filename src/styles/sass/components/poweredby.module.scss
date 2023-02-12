@@ -1,0 +1,66 @@
+@use '../config/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../mixins/index' as *;
+
+.container {
+  max-width: $desktop;
+  margin: auto;
+  width: 100%;
+  border-radius: $space_4;
+  padding: $space_6 $space_6;
+  background-color: $white;
+  box-shadow: $box-shadow;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: baseline;
+  // flex-direction: column;
+  align-items: center;
+  gap: $space_4;
+  &::before {
+    @include circle(38%, 0.3, -$space_20, -$space_8);
+  }
+  @include tablet {
+    padding: $space_6 $space_10;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  span {
+    @include tablet {
+      font-size: larger;
+    }
+  }
+}
+
+.section {
+  padding-inline: $space_4;
+  margin-top: $space_20;
+  // background-color: $white;
+  position: relative;
+  &::after {
+    @include circle(14%, 1, unset, $space_4, -$space_6);
+  }
+  &::before {
+    @include circle(8%, 0.5, -$space_14);
+  }
+  p {
+    font-weight: bold;
+    @include tablet {
+      font-size: larger;
+    }
+  }
+}
+
+.location {
+  color: #0b2d4148;
+  font-size: smaller;
+  @include tablet {
+    font-size: large !important;
+  }
+}
+
+.stars {
+  display: inline-flex;
+  gap: $space_1;
+  margin-inline: $space_2;
+}

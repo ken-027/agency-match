@@ -1,0 +1,100 @@
+@use '../config/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../config/animation' as *;
+@use '../mixins/index' as *;
+
+.section {
+  background-color: $secondary-color;
+  color: $white;
+  position: relative;
+}
+
+.container {
+  max-width: $laptop + 100px;
+  margin: auto;
+  padding-inline: $space_2;
+  padding-block: $space_10;
+  display: flex;
+  flex-direction: column;
+  gap: $space_4;
+}
+
+.subTitle {
+  color: $white;
+  text-align: center;
+
+  @include tablet {
+    font-size: x-large;
+  }
+
+  a {
+    font-weight: bold;
+    font-size: inherit;
+    text-decoration: underline;
+  }
+}
+
+.title {
+  font-weight: bold;
+  color: $white;
+  text-align: center;
+  font-size: larger;
+  @include laptop {
+    font-size: 44px;
+  }
+}
+
+.accordion {
+  // background-color: $white;
+  margin-top: $space_8;
+  border: none;
+  @include tablet {
+    margin-top: $space_16;
+  }
+  span,
+  p {
+    color: $white;
+  }
+  > div {
+    &:first-child {
+      border-top: 1px solid #416780a3 !important;
+    }
+    border-bottom: 1px solid #416780a3 !important;
+    @include tablet {
+      border-width: 2px !important;
+    }
+    > div {
+      // flex-direction: row-reverse;
+      align-items: center !important;
+      svg {
+        color: $white;
+        @include tablet {
+          font-size: 1.5rem !important;
+        }
+      }
+    }
+  }
+  div {
+    border-radius: unset;
+    background-color: $secondary-color;
+  }
+
+  p {
+    font-family: $secondary-font;
+    // font-weight: normal;
+    font-size: smaller;
+    padding-bottom: $space_2 !important;
+    @include tablet {
+      font-size: larger;
+      padding-bottom: $space_3 !important;
+    }
+  }
+}
+
+.accordTitle {
+  padding-block: $space_2;
+  @include tablet {
+    padding-block: $space_3;
+    font-size: x-large;
+  }
+}

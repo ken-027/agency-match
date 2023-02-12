@@ -1,0 +1,118 @@
+@use '../config/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../config/animation' as *;
+@use '../mixins/index' as *;
+
+.feature {
+  text-align: center;
+  background-color: $white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $space_4;
+  max-width: $desktop;
+  margin: auto;
+  align-items: center;
+  max-width: $desktop;
+  margin: auto;
+  overflow-y: visible;
+  position: relative;
+  &::after {
+    @include circle(20%, 0.6, unset, 0, $space_2);
+    z-index: 0;
+  }
+}
+
+.subTitle {
+  color: $primary-color;
+  font-weight: bold;
+  @include tablet {
+    font-size: x-large;
+  }
+}
+
+.title {
+  font-weight: bold;
+  color: $secondary-color;
+  font-size: larger;
+  @include laptop {
+    font-size: 44px;
+  }
+}
+
+.list {
+  display: flex;
+  // flex-direction: column;
+  flex-wrap: wrap;
+  align-items: baseline;
+  padding-block: $space_4;
+  padding-top: $space_10;
+  gap: $space_8;
+  justify-content: center;
+  &::before {
+    @include circle(10%, 1, 0, 0);
+    z-index: 0;
+  }
+  &::after {
+    @include circle(30%, 0.3, $space_2, unset, unset, $space_2);
+    z-index: 0;
+  }
+}
+
+.item {
+  color: $text-color;
+  // background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space_4;
+  &::before {
+    @include circle(3%, 1, 50%, 50%);
+    z-index: 0;
+  }
+  p {
+    font-weight: bold;
+    @include laptop {
+      font-size: x-large;
+    }
+    &:nth-child(3) {
+      font-weight: normal;
+      width: 90%;
+      max-width: 400px;
+      @include laptop {
+        font-size: larger;
+      }
+    }
+  }
+}
+
+.checkList {
+  padding-block: $space_4;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: $space_2;
+  align-items: baseline;
+  @include tablet {
+    flex-direction: row;
+  }
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: $space_2;
+    svg {
+      fill: $primary-color;
+      min-width: fit-content;
+    }
+    p {
+      @include laptop {
+        font-size: larger;
+      }
+    }
+  }
+}
+
+a[type='button'] {
+  @include button;
+}

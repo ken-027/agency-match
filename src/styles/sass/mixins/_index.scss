@@ -1,0 +1,70 @@
+@use '../config/variables' as var;
+@use '../mixins/responsive' as res;
+@use '../config/animation' as *;
+
+@mixin font-family {
+  font-family: var.$primary-font;
+  font-weight: 500;
+}
+
+@mixin circle(
+  $opacity: 100,
+  $scale: 1,
+  $top: unset,
+  $right: unset,
+  $bottom: unset,
+  $left: unset
+) {
+  display: block;
+  content: '';
+  position: absolute;
+  bottom: $bottom;
+  right: $right;
+  left: $left;
+  top: $top;
+  z-index: -1;
+  background-color: var.$primary-color;
+  box-shadow: -4px -3px 45px 5px #59c538b3;
+  width: 100px;
+  border-radius: 50%;
+  opacity: $opacity;
+  transform: scale($scale);
+  aspect-ratio: 1/1;
+  animation: scaling 1.5s linear infinite;
+}
+
+@mixin button(
+  $bg-color: var.$primary-color,
+  $color: var.$white,
+  $icon-color: var.$primary-color,
+  $icon-bg: var.$white
+) {
+  background-color: $bg-color;
+  padding-inline: var.$space_10;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: var.$space_8;
+  gap: var.$space_2;
+  color: $color;
+  @include res.tablet {
+    font-size: x-large;
+  }
+  svg {
+    font-size: 1.2rem;
+    padding: 3px;
+    background-color: $icon-bg;
+    color: $icon-color;
+    border-radius: 50%;
+    // padding: $space_0;
+    @include res.tablet {
+      font-size: 1.35rem;
+    }
+  }
+  &:hover {
+    color: var.$white;
+    svg {
+      animation: sliding 0.9s ease-out infinite;
+    }
+  }
+}

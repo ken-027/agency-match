@@ -1,0 +1,87 @@
+@use '../config/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../config/animation' as *;
+@use '../mixins/index' as *;
+
+.section {
+  max-width: $desktop;
+  position: relative;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  // padding-inline: $space_4;
+  padding-block: $space_10;
+  gap: $space_8;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include laptop {
+    padding-inline: $space_12;
+  }
+}
+
+.image {
+  &::after {
+    @include circle(10%, 1.5, unset, $space_10, $space_5);
+  }
+  &::before {
+    @include circle(60%, 0.2, $space_2, $space_10);
+  }
+  @include tablet {
+    width: 40%;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: $space_4;
+  align-items: center;
+  text-align: center;
+  @include tablet {
+    width: 50%;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: $space_14;
+  }
+  &::before {
+    @include circle(20%, 1.2, $space_5, unset, unset, $space_16);
+  }
+  &::after {
+    @include circle(10%, 1.5, $space_5, unset, unset, $space_16);
+  }
+  h3 {
+    font-weight: bold;
+    @include tablet {
+      font-size: x-large;
+    }
+  }
+  h2 {
+    font-weight: bold;
+    font-size: larger;
+    color: $secondary-color;
+    @include laptop {
+      font-size: 44px;
+    }
+    span {
+      font-size: inherit;
+    }
+  }
+}
+
+.text {
+  font-family: $secondary-font;
+  &::before {
+    @include circle(40%, 0.4, unset, unset, $space_10, $space_3);
+  }
+  @include laptop {
+    font-size: larger;
+    margin-bottom: $space_4;
+  }
+}

@@ -1,0 +1,65 @@
+@use '../config/variables' as *;
+@use '../mixins/responsive' as *;
+
+.footer {
+  background: $secondary-color;
+  color: $white;
+  padding-inline: $space_4;
+  padding-top: $space_10;
+  padding-bottom: $space_4;
+  @include tablet {
+    padding-top: $space_18;
+  }
+}
+
+.container {
+  max-width: $desktop;
+  margin: auto;
+}
+
+.image {
+  margin: auto;
+  @include tablet {
+    margin: auto;
+  }
+}
+
+.links {
+  padding-block: $space_10;
+  border-bottom: 1px solid #416780a3;
+  display: flex;
+  flex-direction: column;
+  gap: $space_4;
+  @include tablet {
+    flex-direction: row;
+    gap: $space_10;
+    justify-content: center;
+  }
+  li {
+    a {
+      font-size: 0.9rem;
+      @include tablet {
+        font-size: large;
+      }
+    }
+  }
+}
+
+.bottomLinks {
+  @extend .links;
+  color: #416780;
+  padding-block: $space_6;
+  border: unset;
+  @include tablet {
+    li:nth-child(1) {
+      margin-right: auto;
+    }
+  }
+}
+
+.copyright {
+  font-size: small;
+  @include tablet {
+    font-size: unset;
+  }
+}

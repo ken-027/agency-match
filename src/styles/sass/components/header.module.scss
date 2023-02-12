@@ -1,0 +1,123 @@
+@use '../config/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../config/animation' as *;
+@use '../mixins/index' as *;
+
+.header {
+  position: relative;
+  background-color: $primary-light-color;
+  // min-height: 100vh;
+  // padding-bottom: 10vh;
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    height: $space_56;
+    background-color: $primary-light-color;
+    inset: 0;
+    top: 100%;
+  }
+}
+
+.container {
+  text-align: center;
+  max-width: $desktop;
+  padding-inline: $space_4;
+  padding-block: $space_10;
+  margin: auto;
+  // background-color: $primary-light-color;
+  @include tablet {
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+  }
+  @include laptop {
+    padding-inline: $space_12;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: $space_8;
+  justify-content: center;
+  gap: $space_4;
+  @include tablet {
+    width: 50%;
+    align-items: flex-start;
+  }
+}
+
+.subTitle {
+  font-weight: bold;
+  @include laptop {
+    font-size: x-large;
+  }
+}
+
+.title {
+  font-weight: bold;
+  font-size: x-large;
+  @include laptop {
+    font-size: 50px;
+  }
+}
+
+.list {
+  padding-block: $space_4;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: $space_2;
+  align-items: baseline;
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: $space_2;
+    svg {
+      min-width: fit-content;
+      fill: $primary-color;
+    }
+    p {
+      // font-family: $secondary-font;
+      @include tablet {
+        font-size: larger;
+      }
+    }
+  }
+}
+
+.button {
+  @include button;
+  svg {
+    animation: sliding 2s ease-out infinite;
+  }
+  &:hover {
+    svg {
+      animation: unset !important;
+    }
+  }
+}
+
+.image {
+  position: relative;
+  @include tablet {
+    width: 40%;
+  }
+  &::after {
+    @include circle(60%, 1.2, unset, unset, 0, 70%);
+  }
+  &::before {
+    @include circle(20%);
+  }
+}
+
+.circles {
+  &::before {
+    @include circle(90%, 0.3, 0, -$space_10);
+  }
+  &::after {
+    @include circle(40%, 0.3, unset, unset, -$space_10, 0);
+  }
+}

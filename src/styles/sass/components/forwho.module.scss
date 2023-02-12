@@ -1,0 +1,169 @@
+@use '../config/variables' as *;
+@use '../mixins/responsive' as *;
+@use '../config/animation' as *;
+@use '../mixins/index' as *;
+
+.section {
+  max-width: $desktop;
+  margin: auto;
+  position: relative;
+  padding-inline: $space_4;
+  padding-block: $space_10;
+  @include laptop {
+    display: flex;
+  }
+  &::after {
+    @include circle(10%, 1.5, unset, $space_10, $space_5);
+  }
+  &::before {
+    @include circle(60%, 0.2, $space_2, $space_10);
+  }
+}
+
+a[type='button'] {
+  @include button;
+}
+
+.cards {
+  display: flex;
+  // flex-direction: column;
+  padding-block: $space_8;
+  gap: $space_4;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  @include laptop {
+    gap: $space_6;
+    width: 50%;
+    // justify-content: baseline;
+    display: grid;
+    grid-template-columns: repeat(2, 270px);
+    place-items: center;
+    column-gap: $space_2;
+    grid-auto-flow: row;
+    // row-gap: 0;
+  }
+
+  &::before {
+    @include circle(12%, 0.5, $space_5, unset, unset, $space_2);
+    z-index: -1;
+  }
+}
+
+.wrapper {
+  overflow: visible;
+  height: 270px;
+  @include tablet {
+    // height: calc(300px + $space_5);
+  }
+  &:nth-child(even) {
+    .card {
+      @include laptop {
+        margin-top: $space_10;
+      }
+    }
+  }
+}
+
+.card {
+  text-align: center;
+  border-radius: $space_4;
+  padding: $space_8 $space_6;
+  box-shadow: $box-shadow;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  // justify-content: center;
+  z-index: 2;
+  align-items: center;
+  gap: $space_4;
+  aspect-ratio: 1/1.05;
+  @include laptop {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+.cardTitle {
+  font-weight: bold;
+  @include laptop {
+    font-size: larger;
+  }
+}
+
+.cardText {
+  font-family: $secondary-font;
+  font-size: smaller;
+  @include tablet {
+    font-size: normal;
+  }
+  @include laptop {
+    font-size: larger;
+  }
+}
+
+.greenCard {
+  color: $white;
+  background-color: $primary-color;
+  a[type='button'] {
+    background-color: $white;
+    font-size: smaller;
+    color: $primary-color;
+    padding-inline: $space_7;
+    svg {
+      background-color: $primary-color;
+      color: $white;
+    }
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: $space_4;
+  position: relative;
+  align-items: center;
+  text-align: center;
+  @include laptop {
+    width: 40%;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: center;
+    gap: $space_6;
+  }
+
+  &::after {
+    @include circle(10%, 1.5, $space_5, unset, unset, $space_16);
+    z-index: -1;
+  }
+
+  a[type='button'] {
+    background-color: $secondary-color;
+    svg {
+      color: $secondary-color;
+    }
+  }
+
+  h3 {
+    font-weight: bold;
+    @include tablet {
+      font-size: x-large;
+    }
+  }
+  h2 {
+    font-weight: bold;
+    color: $secondary-color;
+    font-size: larger;
+    @include laptop {
+      font-size: 44px;
+    }
+  }
+  p {
+    font-family: $secondary-font;
+    @include tablet {
+      font-size: larger;
+    }
+    // font-size: smaller;
+  }
+}
