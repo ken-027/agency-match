@@ -15,6 +15,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   position: relative;
+  scroll-padding: var.$space_10;
   &::before {
     content: '';
     display: block;
